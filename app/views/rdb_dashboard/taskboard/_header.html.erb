@@ -97,6 +97,18 @@
               rdb_board_path(include_subprojects: (@board.project_ids.size > 1) ? 'false' : 'true'),
               enabled: (@board.project_ids.size > 1)
             ) %>
+
+        <% if @board.use_checklist? %>
+          <%= rdb_checkbox_link_to(
+                t(:label_checklist_plural, default: 'Checklists'),
+                rdb_board_path(show_checklists: !@board.show_checklists?),
+                enabled: @board.show_checklists?,
+                title: t(
+                  :rdb_options_show_checklists_info,
+                  default: 'Show checklists on issue cards.',
+                ),
+              ) %>
+        <% end %>
       <% end %>
     <% end %>
 

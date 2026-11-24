@@ -20,6 +20,7 @@ This [Redmine](http://redmine.org) plugin adds an issue dashboard that supports 
 - Hierarchical parent issue view
 - Include subproject issues
 - Quick edit of assignee and progress
+- Checklists on issue cards when the RedmineUP Checklists plugin is installed
 
 Rate plugin at [redmine.org](http://www.redmine.org/plugins/redmine-dashboard).
 

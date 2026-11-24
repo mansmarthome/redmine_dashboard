@@ -1,0 +1,9 @@
+<% if show_checklist?(issue) %>
+  <div class="rdb-checklist" id="checklist_<%= issue.id %>">
+    <ul id="checklist_items_<%= issue.id %>">
+      <% issue.checklists.each do |checklist_item| %>
+        <%= render partial: 'checklists/checklist_item', object: checklist_item %>
+      <% end %>
+    </ul>
+  </div>
+<% end %>

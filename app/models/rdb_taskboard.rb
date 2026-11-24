@@ -24,6 +24,10 @@ class RdbTaskboard < RdbDashboard
       options[:change_assignee] = (params[:change_assignee] == 'true')
     end
 
+    if params[:show_checklists]
+      options[:show_checklists] = (params[:show_checklists] == 'true')
+    end
+
     if (id = params[:hide_column])
       options[:hide_columns] ||= []
       options[:hide_columns].include?(id) ? options[:hide_columns].delete(id) : (options[:hide_columns] << id)

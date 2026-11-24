@@ -25,6 +25,7 @@ en:
   rdb_options_reset_info: Reset all filters back to default
   rdb_options_configure: Configure
   rdb_options_include_subprojects: Include subprojects
+  rdb_options_show_checklists_info: Show checklists on issue cards.
   rdb_options_view: View
   rdb_options_issue_view: Issue View
   rdb_options_issue_view_card: Card

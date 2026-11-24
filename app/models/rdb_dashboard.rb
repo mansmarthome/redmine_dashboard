@@ -58,9 +58,20 @@ class RdbDashboard
   end
 
   def issues
-    filter Issue
+    scope = Issue
       .where(project_id: project_ids)
       .includes(:assigned_to, :time_entries, :tracker, :status, :priority, :fixed_version)
+    scope = scope.preload(:checklists) if show_checklists?
+
+    filter scope
+  end
+
+  def use_checklist?
+    self.class.use_checklist?
+  end
+
+  def show_checklists?
+    use_checklist? && options[:show_checklists] != false
   end
 
   def versions
@@ -177,8 +188,18 @@ class RdbDashboard
         assignee: check_opts(config, 'assignee', :me, :all),
         version: check_opts(config, 'version', :latest, :all),
         hide_done: check_opts(config, 'hide_done', false, true),
-        change_assignee: check_opts(config, 'change_assignee', false, true)
+        change_assignee: check_opts(config, 'change_assignee', false, true),
+        show_checklists: check_opts(config, 'show_checklists', true, false)
       }
+    end
+
+    def use_checklist?
+      return false unless Object.const_defined?(:Checklist)
+      return false unless defined?(Issue)
+
+      Issue.reflect_on_association(:checklists).present?
+    rescue StandardError
+      false
     end
 
     def check_opts(options, name, *values)

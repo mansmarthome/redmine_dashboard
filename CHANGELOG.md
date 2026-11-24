@@ -11,6 +11,8 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a Ch
 
 ### New
 
+- Show RedmineUP Checklists on task board cards when that plugin is installed
+
 ### Changes
 
 ### Fixes

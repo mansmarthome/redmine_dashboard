@@ -28,3 +28,7 @@ hide_done: false
 # Should "Change assignee" option be enabled by default
 # Allowed values are: `false` or `true`
 change_assignee: false
+
+# Show RedmineUP Checklists on issue cards when that plugin is installed.
+# Allowed values are: `false` or `true`.
+show_checklists: true

@@ -37,7 +37,7 @@
         revert: true,
         // containment: '#rdb-board',
         distance: 20,
-        cancel: "a,.rdb-menu",
+        cancel: "a,.rdb-menu,.rdb-checklist,input,button,label",
         start: function () {
           Rdb.rdbMenuClose();
           issue.addClass("rdb-issue-dragged");
@@ -101,6 +101,14 @@
 
   Rdb.rdbInit(function () {
     Rdb.rdbInitDAD();
+  });
+
+  Rdb.rdbInit(function () {
+    if (!$.fn.checklist) return;
+
+    $("#rdb .rdb-checklist").each(function () {
+      $(this).checklist();
+    });
   });
 
   /* ====================================================

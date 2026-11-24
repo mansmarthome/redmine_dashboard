@@ -63,6 +63,12 @@ class RdbTaskboardController < RdbDashboardController
           },
         )
       else
+        messages = @issue.errors.map(&:message)
+        if messages.any?
+          flash.now[:rdb_error] = view_context.safe_join(
+            messages.map {|message| view_context.tag.p(message) },
+          )
+        end
         raise ActiveRecord::Rollback
       end
     end

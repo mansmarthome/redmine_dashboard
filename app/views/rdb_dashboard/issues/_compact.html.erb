@@ -21,6 +21,8 @@
       <div class="rdb-compact-subject rdb-property-subject">
         <%= issue.subject %>
       </div>
+
+      <%= render partial: 'rdb_dashboard/issues/checklist', locals: {issue: issue} %>
     </div>
   </div>
 </div>

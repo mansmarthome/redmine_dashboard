@@ -25,6 +25,7 @@ de:
   rdb_options_reset_info: Setzt alle Filter auf Standardeinstellungen zurück.
   rdb_options_configure: Konfigurieren
   rdb_options_include_subprojects: Unterprojekte einbeziehen
+  rdb_options_show_checklists_info: Checklisten auf den Tickets anzeigen.
   rdb_options_view: Ansicht
   rdb_options_issue_view: Ticket-Ansicht
   rdb_options_issue_view_card: Karte

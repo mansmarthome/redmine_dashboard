@@ -106,5 +106,15 @@ module RdbDashboardHelper
   def rdb_board_path(**kwargs)
     send(:"rdb_#{@board.id}_path", **kwargs)
   end
+
+  def show_checklist?(issue)
+    return false unless @board&.show_checklists?
+    return false unless issue.respond_to?(:checklists)
+    return false unless issue.checklists.any?
+
+    User.current.allowed_to?(:view_checklists, issue.project)
+  rescue StandardError
+    false
+  end
   # rubocop:enable Rails/HelperInstanceVariable
 end

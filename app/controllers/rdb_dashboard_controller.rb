@@ -3,6 +3,7 @@
 class RdbDashboardController < ApplicationController
   menu_item :dashboard
   before_action :find_project, :authorize
+  before_action :enable_checklists_helper
   before_action :setup_board, except: :index
   before_action :find_issue, only: %i[move update]
   before_action :authorize_edit, only: %i[move update]
@@ -47,6 +48,15 @@ class RdbDashboardController < ApplicationController
 
   def save_board_options
     save_options_for(@board.options, board_type.name) if @board
+  end
+
+  def enable_checklists_helper
+    return unless RdbDashboard.use_checklist?
+    return if self.class._helpers.include?(ChecklistsHelper)
+
+    self.class.helper :checklists
+  rescue NameError
+    nil
   end
 
   def authorize_edit
