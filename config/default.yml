@@ -11,11 +11,11 @@ view: card
 
 # Should subproject be included by default.
 # Allowed values are: `false` or `true`.
-include_subprojects: false
+include_subprojects: true
 
 # Default setting for assignee filter.
 # Allowed values are: `me` or `all`.
-assignee: me
+assignee: all
 
 # Default setting for version filter.
 # Allowed values are: `latest` or `all`.
@@ -28,6 +28,8 @@ hide_done: false
 # Should "Change assignee" option be enabled by default
 # Allowed values are: `false` or `true`
 change_assignee: false
+
+group: parent
 
 # Show RedmineUP Checklists on issue cards when that plugin is installed.
 # Allowed values are: `false` or `true`.
